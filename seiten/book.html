@@ -1,0 +1,153 @@
+<html>
+
+<head>
+
+    <title>Book</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+
+<body>
+    <header class="nav">
+
+        <li><a href="../vila-vanda.html"> Home </a></li>
+        <li><a href="./apartments.html"> Apartments </a></li>
+        <li><a href="./gallery.html"> Gallery </a></li>
+        <li><a href="./location.html"> Location </a></li>
+        <li><a href="./book.html">Book</a></li>
+        <li><a href="./contact.html">Contact</a></li>
+
+    </header>
+
+    <section class="booking-section">
+
+        <h1>Book Your Stay</h1>
+
+        <form action="https://api.web3forms.com/submit" method="POST" class="booking-form">
+
+            <input type="hidden" name="access_key" value="29c7bd7e-8845-421a-b748-42751c2fa36f">
+
+            <input type="text" name="name" placeholder="Full Name" required>
+
+            <input type="email" name="email" placeholder="E-Mail Address" required>
+
+            <input type="tel" name="phone" placeholder="Phone Number" pattern="^[0-9+\s()-]+$"
+                title="Only numbers, +, spaces, () and - are allowed" required>
+
+            <label>Check-in</label>
+            <input type="date" name="checkin" required>
+
+            <label>Check-out</label>
+            <input type="date" name="checkout" required>
+
+            <label>Select Apartment(s)</label>
+
+            <div class="apartment-options">
+
+                <label>
+                    <input type="checkbox" id="vanda" name="apartment[]" value="Vanda">
+                    Vanda
+                </label>
+
+                <label>
+                    <input type="checkbox" id="mila" name="apartment[]" value="Mila">
+                    Mila
+                </label>
+
+                <label>
+                    <input type="checkbox" id="nina" name="apartment[]" value="Nina">
+                    Nina
+                </label>
+
+                <label>
+                    <input type="checkbox" id="wholeHouse" name="apartment[]" value="Whole House">
+                    Whole House
+                </label>
+
+            </div>
+            <p id="warning" style="color: rgb(2,54,47); font-family: Arial; margin-top: 10px;"></p>
+
+            <label>Guests</label>
+            <input type="number" name="guests" min="1" max="12">
+
+            <textarea name="message" placeholder="Additional Information"></textarea>
+
+            <button type="submit">
+                Send Booking Request
+            </button>
+
+        </form>
+
+    </section>
+    <script>
+        const wholeHouse = document.getElementById("wholeHouse");
+        const others = [
+            document.getElementById("vanda"),
+            document.getElementById("mila"),
+            document.getElementById("nina")
+        ];
+
+        wholeHouse.addEventListener("change", function () {
+            if (this.checked) {
+                // andere deaktivieren
+                others.forEach(cb => {
+                    cb.checked = false;
+                    cb.disabled = true;
+                });
+            } else {
+                // wieder aktivieren
+                others.forEach(cb => {
+                    cb.disabled = false;
+                });
+            }
+        });
+
+        // optional: wenn andere angeklickt werden → whole house deaktivieren
+        others.forEach(cb => {
+            cb.addEventListener("change", () => {
+                if (cb.checked) {
+                    wholeHouse.checked = false;
+                    wholeHouse.disabled = true;
+                } else {
+                    // wenn keiner mehr aktiv ist → whole house wieder erlauben
+                    if (!others.some(c => c.checked)) {
+                        wholeHouse.disabled = false;
+                    }
+                }
+            });
+        });
+    </script>
+    <script>
+        const vanda = document.getElementById("vanda");
+        const mila = document.getElementById("mila");
+        const nina = document.getElementById("nina");
+        const whole = document.getElementById("wholeHouse");
+        const warning = document.getElementById("warning");
+
+        function checkSelection() {
+            const allThree = vanda.checked && mila.checked && nina.checked;
+
+            if (allThree) {
+                warning.textContent = "Please select Whole House instead.";
+            } else {
+                warning.textContent = "";
+            }
+        }
+
+        // Event Listener auf alle 3
+        [vanda, mila, nina].forEach(cb => {
+            cb.addEventListener("change", checkSelection);
+        });
+    </script>
+</body>
+
+<footer class="footer">
+    <li><a href="mailto:villavandacroatia@gmail.com" target="_blank">E-Mail</a></li>
+    <li><a href="tel:+385955333786">Phone</a></li>
+    <li><a href="https://www.google.com/maps/place/Vila+Vanda/@44.3037436,15.2815402,16z/data=!4m6!3m5!1s0xa8ce085dac77c2d5:0x56944635d5dc67b!8m2!3d44.3037437!4d15.2843485!16s%2Fg%2F11xm6scsq9?entry=ttu&g_ep=EgoyMDI2MDUwNi4wIKXMDSoASAFQAw%3D%3D"
+            target="_blank">Adress</a>
+    </li>
+    <li><a href="https://www.instagram.com/vila_vanda/" target="_blank">Instagram</a></li>
+</footer>
+
+</html>

@@ -1,0 +1,254 @@
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+            scroll-margin-top: 50px;
+        }
+
+        header {
+            background-color: rgb(2, 54, 47);
+            z-index: 8;
+            margin: 0;
+            list-style: none;
+            position: sticky;
+            top: 0;
+            padding: 2em;
+            width: 100%;
+            padding: 20px 0;
+            margin: 0;
+        }
+
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        main,
+        .content,
+        .booking-section {
+            flex: 1;
+        }
+
+        .nav {
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: white;
+            padding: 1em;
+            font-size: 20px;
+            font-family: Ansam;
+
+        }
+
+        h1 {
+            font-family: Ansam, 'Times New Roman', Times, serif;
+            font-weight: lighter;
+            font-size: 100px;
+            color: rgb(2, 54, 47);
+            text-align: center;
+            margin-top: 60px;
+            margin-bottom: 50px;
+            font-variant: small-caps;
+            letter-spacing: 6px;
+
+
+        }
+
+        .hero-image {
+            height: auto;
+            width: 100%;
+
+            object-fit: cover;
+
+            display: block;
+
+        }
+
+        .content {
+            padding-top: 40px;
+            padding-bottom: 40px;
+            padding-left: 12%;
+            padding-right: 12%;
+        }
+
+        h2 {
+            font-size: 45px;
+            font-weight: lighter;
+
+            color: rgb(2, 54, 47);
+
+            margin-bottom: 20px;
+            margin-top: 0px;
+
+            font-family: Ansam, Georgia;
+        }
+
+        p {
+            font-size: 16px;
+
+            line-height: 1.8;
+
+            color: rgb(60, 60, 60);
+
+            font-family: Arial;
+            margin-bottom: 10px;
+        }
+
+        footer {
+
+            background-color: rgb(2, 54, 47);
+            width: 100%;
+            padding: 20px 0;
+            margin-top: auto;
+            list-style: none;
+        }
+
+
+        .footer a {
+            text-decoration: none;
+            color: white;
+            font-size: 20px;
+            padding: 1em;
+            font-family: 'Ansam';
+
+
+        }
+
+        .footer {
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+        }
+
+        @font-face {
+            font-family: 'Ansam';
+            src: url('../fonts/ansam/Ansam.ttf') format('truetype');
+        }
+
+
+        .apartment-img {
+            width: 100%;
+            object-fit: cover;
+            display: block;
+
+        }
+
+        .image-gallery {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            padding-bottom: 20px;
+        }
+
+        .apartment-img {
+            width: 500px;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 15px;
+            flex-shrink: 0;
+            scroll-snap-align: center;
+        }
+
+        .booking-section {
+            padding: 80px 12%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 80px 12%;
+        }
+
+        .booking-form {
+            width: 100%;
+            max-width: 700px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+
+        }
+
+        .booking-form input,
+        .booking-form select,
+        .booking-form textarea {
+            padding: 18px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            font-family: Arial;
+        }
+
+        .booking-form textarea {
+            min-height: 150px;
+        }
+
+        .booking-form button {
+            background-color: rgb(2, 54, 47);
+            color: white;
+            border: none;
+            padding: 18px;
+            border-radius: 10px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .booking-section h1 {
+            text-align: center;
+            margin-bottom: 50px;
+            margin-top: 20px;
+        }
+
+        .booking-section label {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 20px;
+            color: rgb(2, 54, 47);
+        }
+
+        .apartment-options {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .apartment-options label {
+            font-size: 18px;
+            font-family: Arial;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact a {
+            text-decoration: underline;
+            color: rgb(60, 60, 60);
+
+
+        }
+
+        .contact {
+            text-align: center;
+            margin-bottom: 20px;
+            margin-top: 0px;
+        }
+
+        .required-note {
+            text-align: center;
+            font-size: 14px;
+            color: rgb(60, 60, 60);
+            margin-bottom: 20px;
+        }
